@@ -1,0 +1,68 @@
+<app-header></app-header>
+
+<div class="auth-container fade-in">
+  <div class="auth-card">
+
+    <!-- Formulario de login -->
+    <div class="auth-form" *ngIf="!showMFA">
+      <h1>Iniciar Sesión</h1>
+      
+      <form (ngSubmit)="onLogin()">
+        <!-- Campo de correo electrónico -->
+     <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">
+        <i class="pi pi-envelope"></i>
+      </span>
+      <input
+        type="email"
+        pInputText
+        class="auth-input"
+        [(ngModel)]="loginData.email"
+        name="email"
+        placeholder="Ingresa tu correo electrónico"
+        required
+      />
+    </div>
+
+        <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">
+        <i class="pi pi-lock"></i>
+      </span>
+      <input
+        type="password"
+        pInputText
+        class="auth-input"
+        [(ngModel)]="loginData.password"
+        name="password"
+        placeholder="Ingresa tu contraseña"
+        required
+      />
+    </div>
+        <button type="submit" class="auth-btn" [disabled]="loading">
+          <i class="pi pi-sign-in mr-2" *ngIf="!loading"></i>
+          <i class="pi pi-spin pi-spinner mr-2" *ngIf="loading"></i>
+          {{ loading ? 'Iniciando...' : 'Iniciar Sesión' }}
+        </button>
+      </form>
+
+      <div class="auth-link">
+        ¿No tienes cuenta? <a routerLink="/auth/register">Regístrate aquí</a>
+      </div>
+    </div>
+    
+    <!-- Componente MFA -->
+    <div class="auth-form" *ngIf="showMFA">
+      <app-mfa
+        [showQRCode]="!!qrCodeUrl"
+        [qrCodeUrl]="qrCodeUrl"
+        [backupCodes]="backupCodes"
+        [email]="loginData.email"
+        [password]="loginData.password"
+        (mfaVerified)="onMfaVerified($event)"
+        (cancelled)="onMfaCancelled()"
+      ></app-mfa>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

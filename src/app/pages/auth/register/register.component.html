@@ -1,0 +1,130 @@
+<app-header></app-header>
+
+<div class="auth-container fade-in">
+  <div class="auth-card">
+    <div class="auth-form">
+      <h1>Registrarse</h1>
+        <form (ngSubmit)="onRegister()">
+
+          <div class="p-inputgroup mb-3">
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-user"></i>
+            </span>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              [(ngModel)]="registerData.nombre"
+              pInputText
+              class="auth-input"
+              placeholder="Nombre(s)"
+              required
+            />
+          </div>
+
+          <!-- Apellido -->
+          <div class="p-inputgroup mb-3">
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-user-edit"></i>
+            </span>
+            <input
+              type="text"
+              id="apellido"
+              name="apellido"
+              [(ngModel)]="registerData.apellido"
+              pInputText
+              class="auth-input"
+              placeholder="Apellido(s)"
+              required
+            />
+          </div>
+
+          <!-- Correo -->
+          <div class="p-inputgroup mb-3">
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-envelope"></i>
+            </span>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              [(ngModel)]="registerData.email"
+              pInputText
+              class="auth-input"
+              placeholder="Correo electrónico"
+              required
+            />
+          </div>
+
+          <!-- Contraseña -->
+        <div class="p-inputgroup mb-3">
+          <span class="p-inputgroup-addon">
+            <i class="pi pi-lock"></i>
+          </span>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            id="password"
+            name="password"
+            [(ngModel)]="registerData.password"
+            pInputText
+            class="auth-input"
+            placeholder="Contraseña (mínimo 12 caracteres)"
+            required
+          />
+          <span class="p-inputgroup-addon" style="cursor: pointer" (click)="showPassword = !showPassword">
+            <i [class]="showPassword ? 'pi pi-eye-slash' : 'pi pi-eye'"></i>
+          </span>
+        </div>
+
+          <!-- Confirmar contraseña -->
+          <div class="p-inputgroup mb-3">
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-lock"></i>
+            </span>
+            <input
+              [type]="showConfirmPassword ? 'text' : 'password'"
+              id="confirmPassword"
+              name="confirmPassword"
+              [(ngModel)]="registerData.confirmPassword"
+              pInputText
+              class="auth-input"
+              placeholder="Confirmar contraseña"
+              required
+            />
+            <span class="p-inputgroup-addon" style="cursor: pointer" (click)="showConfirmPassword = !showConfirmPassword">
+              <i [class]="showConfirmPassword ? 'pi pi-eye-slash' : 'pi pi-eye'"></i>
+            </span>
+          </div>
+
+          <!-- Fecha de nacimiento -->
+          <div class="p-inputgroup mb-3">
+          <span class="p-inputgroup-addon">
+            <i class="pi pi-calendar"></i>
+          </span>
+          <input
+            type="date"
+            id="fecha_nacimiento"
+            name="fecha_nacimiento"
+            [(ngModel)]="registerData.fecha_nacimiento"
+            pInputText
+            class="auth-input"
+            placeholder="Fecha de nacimiento"
+            required
+          />
+        </div>
+
+          <!-- Botón -->
+          <button type="submit" class="btn-secondary auth-btn" [disabled]="loading">
+            <i class="pi pi-user-plus mr-2"></i>
+            Registrarse
+          </button>
+        </form>
+
+      <div class="auth-link">
+        ¿Ya tienes cuenta? <a routerLink="/auth/login">Inicia sesión aquí</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer> 

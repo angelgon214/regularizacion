@@ -1,0 +1,144 @@
+footer {
+  background-color: #003087;
+  color: #ffffff;
+  padding: 30px 20px;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  margin-top: auto;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 0;
+  gap: 30px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  border-bottom: 2px solid #00aaff;
+  padding-bottom: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.footer-section h3:hover {
+  border-color: #ffffff;
+}
+
+.footer-section a {
+  display: block;
+  font-size: 0.95rem;
+  color: #d3e0ea;
+  text-decoration: none;
+  margin: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #00aaff;
+  text-decoration: underline;
+}
+
+.social-icons {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: #ffffff;
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #00aaff;
+}
+
+.app-download {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.app-download a {
+  color: #ffffff;
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.app-download a:hover {
+  color: #00aaff;
+}
+
+.footer-hospitals {
+  text-align: center;
+  padding: 20px 0;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  margin: 20px 0;
+}
+
+.footer-hospitals h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.footer-hospitals p {
+  font-size: 0.9rem;
+  margin: 5px 0;
+  color: #e0e0e0;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.85rem;
+  color: #e0e0e0;
+}
+
+.footer-bottom .footer-links a {
+  color: #e0e0e0;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer-bottom .footer-links a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    margin-bottom: 20px;
+  }
+
+  .social-icons, .app-download {
+    justify-content: center;
+  }
+}
